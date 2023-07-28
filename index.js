@@ -1,6 +1,18 @@
 const List = document.getElementById('list');
-const btn = document.getElementById('btn')
+const btn = document.getElementById('btn');
+const searchVal = document.getElementById('search')
 
+searchVal.addEventListener('keyup', e => {
+    let val = searchVal.value.toLowerCase();
+    const allTexts = List.querySelectorAll('p');
+    allTexts.forEach(ele => {
+        if(ele.textContent.toLowerCase().includes(val)){
+            ele.parentElement.style.display = 'flex'
+        } else {
+            ele.parentElement.style.display = 'none' 
+        }
+    })
+})
 
 
 List.addEventListener('click', e=> {
